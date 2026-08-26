@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>跳转中...</title>
+  <script>
+    // GitHub Pages SPA 回退：将当前路径转换为 hash 路由
+    (function () {
+      // 获取 base path 后的实际路由（去掉 /smart-civil-defense/ 前缀）
+      var path = window.location.pathname;
+      var base = '/smart-civil-defense';
+      if (path.startsWith(base)) {
+        path = path.slice(base.length);
+      }
+      // 去掉末尾的 /index.html 等
+      if (path.endsWith('/index.html')) {
+        path = path.slice(0, -10);
+      }
+      if (path === '/' || path === '') {
+        path = '/dashboard';
+      }
+      // 跳转到 hash 路由
+      window.location.replace(base + '/#' + path);
+    })();
+  </script>
+  <meta http-equiv="refresh" content="0; url=/smart-civil-defense/#/dashboard" />
+</head>
+<body>
+  <p>正在跳转，请稍候...</p>
+</body>
+</html>
